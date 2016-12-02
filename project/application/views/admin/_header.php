@@ -55,13 +55,13 @@
                   </li>
                   <li class="<?= $title == 'Data Orang Tua' ? 'active' : '' ?>"><a><i class="fa fa-edit"></i> Orang Tua <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="datajob.php">Pekerjaan</a></li>
-                      <li><a href="dataedu.php">Pendidikan</a></li>
+                      <li><a href="<?= base_url('admin/data_pekerjaan_ortu/') ?>">Pekerjaan</a></li>
+                      <li><a href="<?= base_url('admin/data_pendidikan_ortu/') ?>">Pendidikan</a></li>
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-edit"></i> Agama <span class="fa fa-chevron-down"></span></a>
+                  <li class="<?= $title == 'Data Agama' ? 'active' : '' ?>"><a><i class="fa fa-edit"></i> Agama <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="dataagama.php">Agama</a></li>
+                      <li><a href="<?= base_url('admin/data_agama/') ?>">Agama</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-edit"></i> Data Siswa <span class="fa fa-chevron-down"></span></a>
