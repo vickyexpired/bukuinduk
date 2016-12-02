@@ -119,10 +119,10 @@ $totalPages_tampil = ceil($totalRows_tampil/$maxRows_tampil)-1;
                       <div class="ln_solid"></div>
                       <div class="form-group">
                         <div class="col-md-6 col-md-offset-3">
-							<input type="submit" value="Tambahkan" class="btn btn-primary" />
+							             <input type="submit" value="Tambahkan" class="btn btn-primary" />
                         </div>
                       </div>
-					  <input type="hidden" name="MM_insert" value="form1" />
+					             <input type="hidden" name="MM_insert" value="form1" />
                     </form>
                   </div>
                   <div class="x_title">
@@ -139,18 +139,18 @@ $totalPages_tampil = ceil($totalRows_tampil/$maxRows_tampil)-1;
                         </tr>
                       </thead>
                       <tbody>
-						<?php do { ?>
-						  <tr>
-							<td><?php echo $row_tampil['id_tk']; ?></td>
-							<td><?php echo $row_tampil['nama_tk']; ?></td>
-							<td><?php echo $row_tampil['alamat_tk']; ?></td>
-							<td>
-							<div class='btn-group'>
-								  <a href="hapustk.php?id_tk=<?php echo $row_tampil['id_tk']; ?>" class="btn btn-danger btn-xs glyphicon glyphicon-remove tipsy-kiri-atas" title="Hapus Data Ini"><i class="icon-remove icon-white"></i></a> 
-								  <a href="formedittk.php?id_tk=<?php echo $row_tampil['id_tk']; ?>" class="btn btn-default btn-xs glyphicon glyphicon-pencil tipsy-kiri-atas" title='Edit Data ini'> <i class="icon-edit icon-white"></i> </a></div>
-							</td>
-						  </tr>
-						  <?php } while ($row_tampil = mysql_fetch_assoc($tampil)); ?>
+          						<?php do { ?>
+          						  <tr>
+          							<td><?php echo $row_tampil['id_tk']; ?></td>
+          							<td><?php echo $row_tampil['nama_tk']; ?></td>
+          							<td><?php echo $row_tampil['alamat_tk']; ?></td>
+          							<td>
+          							<div class='btn-group'>
+          								  <a href="hapustk.php?id_tk=<?php echo $row_tampil['id_tk']; ?>" class="btn btn-danger btn-xs glyphicon glyphicon-remove tipsy-kiri-atas" title="Hapus Data Ini"><i class="icon-remove icon-white"></i></a> 
+          								  <a href="formedittk.php?id_tk=<?php echo $row_tampil['id_tk']; ?>" class="btn btn-default btn-xs glyphicon glyphicon-pencil tipsy-kiri-atas" title='Edit Data ini'> <i class="icon-edit icon-white"></i> </a></div>
+          							</td>
+          						  </tr>
+          					  <?php } while ($row_tampil = mysql_fetch_assoc($tampil)); ?>
                       </tbody>
                     </table>
                 </div>

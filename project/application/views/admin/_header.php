@@ -9,6 +9,7 @@
 <title><?= $title ?></title>    
 <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/bootstrap.min.css') ?>">
 <link rel="stylesheet" type="text/css" href="<?= base_url('assets/admin/css/custom.min.css') ?>">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.12/af-2.1.2/datatables.min.css"/>
 </head>
 <body class="nav-md">
     <div class="container body">
@@ -16,7 +17,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-                <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Gentellela Alela!</span></a>
+                <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>SMP Tahfidzqu</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -42,7 +43,7 @@
                 <ul class="nav side-menu">
                   <li class="<?= $title == 'Dashboard' ? 'active' : '' ?>"><a href="<?= base_url('admin/dashboard/'); ?>"><i class="fa fa-home"></i> Home <span class="fa fa-chevron"></span></a>
                   </li>
-                  <li><a><i class="fa fa-edit"></i> TK <span class="fa fa-chevron-down"></span></a>
+                  <li class="<?= $title == 'Data TK' ? 'active' : '' ?>"><a><i class="fa fa-edit"></i> TK <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="<?= base_url('admin/data_tk') ?>">Data TK</a></li>
                     </ul>
@@ -96,7 +97,7 @@
                         <span>Settings</span>
                       </a>
                     </li>
-                    <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                    <li><a href="<?= base_url('auth/logout/') ?>"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                   </ul>
                 </li>
               </ul>
