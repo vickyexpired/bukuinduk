@@ -37,7 +37,11 @@
                     <div class="form-group">
                         <div class="col-md-6 col-md-offset-3">
 					        <input type="submit" name="submit" value="Ubah Data" onclick="return confirm('Apakah anda yakin?')" class="btn btn-primary" />
+<<<<<<< HEAD
 					        <?= anchor('admin/data_tk','Kembali',array('class' => 'btn btn-warning')) ?>
+=======
+                            <?= anchor('admin/data_tk/','Kembali',array('class' => 'btn btn-warning')) ?>
+>>>>>>> 9f0b61e5512b989856804d592996de8b3941ef4a
                         </div>
                     </div>
 				</form>
