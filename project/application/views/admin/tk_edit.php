@@ -36,7 +36,8 @@
                     <div class="ln_solid"></div>
                     <div class="form-group">
                         <div class="col-md-6 col-md-offset-3">
-					        <input type="submit" name="submit" value="Edit" onclick="return confirm('Apakah anda yakin?')" class="btn btn-primary" />
+					        <input type="submit" name="submit" value="Ubah Data" onclick="return confirm('Apakah anda yakin?')" class="btn btn-primary" />
+                            <?= anchor('admin/data_tk/','Kembali',array('class' => 'btn btn-warning')) ?>
                         </div>
                     </div>
 				</form>
