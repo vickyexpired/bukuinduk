@@ -6,7 +6,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title><?= $title ?></title>    
+<title>Buku Induk | <?= $title ?></title>    
 <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/bootstrap.min.css') ?>">
 <link rel="stylesheet" type="text/css" href="<?= base_url('assets/admin/css/custom.min.css') ?>">
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.12/af-2.1.2/datatables.min.css"/>
@@ -53,7 +53,7 @@
                       <li><a href="datasd.php">Data SD</a></li>
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-edit"></i> Orang Tua <span class="fa fa-chevron-down"></span></a>
+                  <li class="<?= $title == 'Data Orang Tua' ? 'active' : '' ?>"><a><i class="fa fa-edit"></i> Orang Tua <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="datajob.php">Pekerjaan</a></li>
                       <li><a href="dataedu.php">Pendidikan</a></li>

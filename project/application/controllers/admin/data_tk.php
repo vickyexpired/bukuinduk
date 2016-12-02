@@ -5,11 +5,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */	
 class data_tk extends CI_Controller
 {
-	
+	private $table;
+
+	private $column_id;
+
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('tk_m');
+		$this->load->model('crud');
+		$this->table = 'ttk';
+		$this->column_id = 'id_tk';
 	}
 
 	public function index()
@@ -18,7 +23,7 @@ class data_tk extends CI_Controller
 		if (!$this->session->userdata('logged_in')) {
 			redirect('auth','refresh');
 		} else {
-			$data['record'] = $this->tk_m->get_all()->result_array();
+			$data['record'] = $this->crud->get_all($this->table)->result_array();
 			$this->load->view('admin/tk_list',$data);
 		}
 	}
@@ -35,7 +40,7 @@ class data_tk extends CI_Controller
 					'nama_tk' => $nama,
 					'alamat_tk' => $alamat
 					);
-				$this->tk_m->add($data_insert);
+				$this->crud->add($this->table, $data_insert);
 				$this->session->set_flashdata('message','Sukses menambahkan data.');
 				redirect('admin/data_tk/','refresh');
 			} else {
@@ -60,11 +65,11 @@ class data_tk extends CI_Controller
 					'alamat_tk' => $alamat
 					);
 
-				$this->tk_m->edit($id, $data_update);
+				$this->crud->edit($this->table, $this->column_id, $id, $data_update);
 				$this->session->set_flashdata('message','Sukses mengedit data.');
 				redirect('admin/data_tk/','refresh');
 			} else {
-				$data['record'] = $this->tk_m->get_one($id)->row_array();
+				$data['record'] = $this->crud->get_one($this->table, $this->column_id, $id)->row_array();
 				$this->load->view('admin/tk_edit',$data);
 			}
 		}
@@ -75,7 +80,7 @@ class data_tk extends CI_Controller
 		if (!$this->session->userdata('logged_in')) {
 			redirect('auth','refresh');
 		} else {
-			$this->tk_m->delete($id);
+			$this->crud->delete($this->table, $this->column_id, $id);
 			$this->session->set_flashdata('message','Sukses menghapus data.');
 			redirect('admin/data_tk/','refresh');
 		}
