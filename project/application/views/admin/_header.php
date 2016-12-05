@@ -48,9 +48,9 @@
                       <li><a href="<?= base_url('admin/data_tk') ?>">Data TK</a></li>
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-edit"></i> SD <span class="fa fa-chevron-down"></span></a>
+                  <li class="<?= $title == 'Data SD' ? 'active' : '' ?>"><a><i class="fa fa-edit"></i> SD <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="datasd.php">Data SD</a></li>
+                      <li><a href="<?= base_url('admin/data_sd') ?>">Data SD</a></li>
                     </ul>
                   </li>
                   <li class="<?= $title == 'Data Orang Tua' ? 'active' : '' ?>"><a><i class="fa fa-edit"></i> Orang Tua <span class="fa fa-chevron-down"></span></a>
