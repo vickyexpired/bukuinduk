@@ -24,7 +24,7 @@ class data_tk extends CI_Controller
 			redirect('auth','refresh');
 		} else {
 			$data['record'] = $this->crud->get_all($this->table)->result_array();
-			$this->load->view('admin/tk_list',$data);
+			$this->load->view('admin/tk_list_v',$data);
 		}
 	}
 
@@ -70,7 +70,7 @@ class data_tk extends CI_Controller
 				redirect('admin/data_tk/','refresh');
 			} else {
 				$data['record'] = $this->crud->get_one($this->table, $this->column_id, $id)->row_array();
-				$this->load->view('admin/tk_edit',$data);
+				$this->load->view('admin/tk_edit_v',$data);
 			}
 		}
 	}
