@@ -64,9 +64,9 @@
                       <li><a href="<?= base_url('admin/data_agama/') ?>">Agama</a></li>
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-edit"></i> Data Siswa <span class="fa fa-chevron-down"></span></a>
+                  <li class="<?= $title == 'Data Siswa' ? 'active' : '' ?>"><a><i class="fa fa-edit"></i> Data Siswa <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="datasiswa.php">Data Siswa</a></li>
+                      <li><a href="<?= base_url('admin/data_siswa/') ?>">Data Siswa</a></li>
                     </ul>
                   </li>
                 </ul>
