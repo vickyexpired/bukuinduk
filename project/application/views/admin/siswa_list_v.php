@@ -28,7 +28,7 @@
                 	</tr>
                 </thead>
                 <tbody>
-                	<?php foreach ($record as $no => $re): ?>
+                	<?php foreach ($record as $re): ?>
                 		<tr>
                 			<td><?= $re['nisn'] ?></td>
                             <td><?= $re['nama_lengkap'] ?></td>
@@ -36,8 +36,8 @@
                             <td><?= $re['nama_sd'] ?></td>
                 			<td>
                 				<div class='btn-group'>
-									<a href="<?= base_url('admin/data_agama/delete/'.$re['id_siswa']) ?>" onclick="return confirm('Apakah anda yakin?')" class="btn btn-danger btn-xs fa fa-remove tipsy-kiri-atas" title="Hapus Data Ini"><i class="icon-remove icon-white"></i></a> 
-									<a href="<?= base_url('admin/data_agama/edit/'.$re['id_siswa']) ?>" class="btn btn-default btn-xs fa fa-pencil tipsy-kiri-atas" title='Edit Data ini'> <i class="icon-edit icon-white"></i></a>
+									<a href="<?= base_url('admin/data_siswa/delete/'.$re['id_siswa']) ?>" onclick="return confirm('Apakah anda yakin?')" class="btn btn-danger btn-xs fa fa-remove tipsy-kiri-atas" title="Hapus Data Ini"><i class="icon-remove icon-white"></i></a> 
+									<a href="<?= base_url('admin/data_siswa/edit/'.$re['id_siswa']) ?>" class="btn btn-default btn-xs fa fa-pencil tipsy-kiri-atas" title='Edit Data ini'> <i class="icon-edit icon-white"></i></a>
 								</div>
                 			</td>
                 		</tr>	

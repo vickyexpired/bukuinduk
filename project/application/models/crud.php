@@ -16,6 +16,12 @@ class crud extends CI_Model
 		return $this->db->get($table);
 	}
 
+	public function get_max_id($table, $column_id)
+	{
+		$this->db->select('max('.$column_id.')');
+		return $this->db->get($table);
+	}
+
 	public function add($table, $data)
 	{
 		$this->db->insert($table,$data);
