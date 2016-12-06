@@ -23,6 +23,35 @@ class data_siswa extends CI_Controller
 		}
 	}
 
+    public function detail($id = '')
+    {
+        $data['title'] = 'Data Siswa';
+        if (!$this->session->userdata('logged_in')) {
+            redirect('auth','refresh');
+        } else if ($id == '') {
+            redirect('admin/data_siswa/','refresh');
+        } else {
+            $data['record_siswa'] = $this->crud->get_one('tsiswa','id_siswa',$id)->row_array();
+            $data['record_ortu'] = $this->crud->get_one('tortu','id_ortu',$data['record_siswa']['id_ortu'])->row_array();
+            $data['record_tk'] = $this->crud->get_one('ttk','id_tk',$data['record_siswa']['id_tk'])->row_array();
+            $data['record_sd'] = $this->crud->get_one('tsd','id_sd',$data['record_siswa']['id_sd'])->row_array();
+            $data['record_a'] = array(
+                'job_a' => $this->crud->get_one('tjob','id_job',$data['record_ortu']['job_a'])->row_array(),
+                'agama_a' => $this->crud->get_one('tagama','id_agama',$data['record_ortu']['agama_a'])->row_array(),
+                'edu_a' => $this->crud->get_one('tedu','id_edu',$data['record_ortu']['edu_a'])->row_array()
+                );
+            $data['record_i'] = array(
+                'job_i' => $this->crud->get_one('tjob','id_job',$data['record_ortu']['job_i'])->row_array(),
+                'agama_i' => $this->crud->get_one('tagama','id_agama',$data['record_ortu']['agama_i'])->row_array(),
+                'edu_i' => $this->crud->get_one('tedu','id_edu',$data['record_ortu']['edu_i'])->row_array()
+                );
+            $data['tgl_lahir'] = $this->siswa_m->date_indo($data['record_siswa']['tgl_lahir']);
+            $data['gol_darah'] = $this->siswa_m->gol_darah($data['record_siswa']['id_goldar']);
+            $data['baca_quran'] = $this->siswa_m->baca_quran($data['record_siswa']['baca_quran']);
+            $this->load->view('admin/siswa_detail_v',$data);
+        }
+    }
+
 	public function add()
 	{
 		$data['title'] = 'Data Siswa';
@@ -168,10 +197,13 @@ class data_siswa extends CI_Controller
 
             	$this->crud->edit('tortu','id_ortu', $id_ortu, $data_ortu);
 
-            	if (!$this->upload->do_upload('foto')) {
-                    $wow = $this->siswa_m->get_foto($id)->row_array();
-                    $foto = $wow['foto'];
+                $foto = $this->siswa_m->get_foto($id)->row_array();
+                if (!$this->upload->do_upload('foto')) {
+                    $foto = $foto['foto'];
                 } else {
+                    if ($foto['foto'] != '') {
+                        unlink('./uploads/siswa/'.$foto['foto']);
+                    }
                     $wow = $this->upload->data();
                     $foto = $wow['file_name'];
 				}
@@ -248,11 +280,13 @@ class data_siswa extends CI_Controller
 		}
 	}
 
-	public function delete($id)
+	public function delete($id = '')
 	{
 		if (!$this->session->userdata('logged_in')) {
 			redirect('auth','refresh');
-		} else {
+		} else if ($id == '') {
+            redirect('admin/data_siswa/','refresh');
+        } else {
             $record_id = $this->siswa_m->get_id_ortu($id)->row_array();
 			$this->crud->delete('tortu', 'id_ortu', $record_id['id_ortu']);
 			$this->crud->delete('tsiswa', 'id_siswa', $id);
@@ -260,4 +294,32 @@ class data_siswa extends CI_Controller
 			redirect('admin/data_siswa/','refresh');
 		}
 	}
+
+    public function print_siswa($id = '')
+    {
+        if (!$this->session->userdata('logged_in')) {
+            redirect('auth','refresh');
+        } else if ($id == '') {
+            redirect('admin/data_siswa/','refresh');
+        } else {
+            $data['record_siswa'] = $this->crud->get_one('tsiswa','id_siswa',$id)->row_array();
+            $data['record_ortu'] = $this->crud->get_one('tortu','id_ortu',$data['record_siswa']['id_ortu'])->row_array();
+            $data['record_tk'] = $this->crud->get_one('ttk','id_tk',$data['record_siswa']['id_tk'])->row_array();
+            $data['record_sd'] = $this->crud->get_one('tsd','id_sd',$data['record_siswa']['id_sd'])->row_array();
+            $data['record_a'] = array(
+                'job_a' => $this->crud->get_one('tjob','id_job',$data['record_ortu']['job_a'])->row_array(),
+                'agama_a' => $this->crud->get_one('tagama','id_agama',$data['record_ortu']['agama_a'])->row_array(),
+                'edu_a' => $this->crud->get_one('tedu','id_edu',$data['record_ortu']['edu_a'])->row_array()
+                );
+            $data['record_i'] = array(
+                'job_i' => $this->crud->get_one('tjob','id_job',$data['record_ortu']['job_i'])->row_array(),
+                'agama_i' => $this->crud->get_one('tagama','id_agama',$data['record_ortu']['agama_i'])->row_array(),
+                'edu_i' => $this->crud->get_one('tedu','id_edu',$data['record_ortu']['edu_i'])->row_array()
+                );
+            $data['tgl_lahir'] = $this->siswa_m->date_indo($data['record_siswa']['tgl_lahir']);
+            $data['gol_darah'] = $this->siswa_m->gol_darah($data['record_siswa']['id_goldar']);
+            $data['baca_quran'] = $this->siswa_m->baca_quran($data['record_siswa']['baca_quran']);
+            $this->load->view('admin/siswa_print_v',$data);
+        }
+    }
 }

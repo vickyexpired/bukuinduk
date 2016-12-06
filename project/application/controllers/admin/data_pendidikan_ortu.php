@@ -75,6 +75,8 @@ class data_pendidikan_ortu extends CI_Controller
 	{
 		if (!$this->session->userdata('logged_in')) {
 			redirect('auth','refresh');
+		} else if ($id == '') {
+            redirect('admin/data_pendidikan_ortu/','refresh');
 		} else {
 			$this->crud->delete($this->table, $this->column_id, $id);
 			$this->session->set_flashdata('message','Sukses menghapus data.');
