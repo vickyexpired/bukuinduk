@@ -36,6 +36,7 @@
                             <td><?= $re['nama_sd'] ?></td>
                 			<td>
                 				<div class='btn-group'>
+                                    <a href="<?= base_url('admin/data_siswa/detail/'.$re['id_siswa']) ?>" class="btn btn-primary btn-xs fa fa-sticky-note tipsy-kiri-atas" title='Detail Data ini'> <i class="icon-detail icon-white"></i></a>
 									<a href="<?= base_url('admin/data_siswa/delete/'.$re['id_siswa']) ?>" onclick="return confirm('Apakah anda yakin?')" class="btn btn-danger btn-xs fa fa-remove tipsy-kiri-atas" title="Hapus Data Ini"><i class="icon-remove icon-white"></i></a> 
 									<a href="<?= base_url('admin/data_siswa/edit/'.$re['id_siswa']) ?>" class="btn btn-default btn-xs fa fa-pencil tipsy-kiri-atas" title='Edit Data ini'> <i class="icon-edit icon-white"></i></a>
 								</div>

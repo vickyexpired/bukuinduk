@@ -11,7 +11,7 @@
         <?= form_open_multipart('admin/data_siswa/edit/',array('class' => 'form-horizontal form-label-left')) ?>
             <div class="col-md-6 col-sm-6 col-xs-12">
                 <div class="x_title">
-                    <h2>Data Diri</h2>
+                    <h2>Data Diri Siswa</h2>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
@@ -257,7 +257,7 @@
             </div>
             <div class="col-md-6 col-sm-6 col-xs-12">
                 <div class="x_title">
-                    <h2>Data Orang Tua</h2>
+                    <h2>Data Orang Tua Siswa</h2>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
@@ -377,7 +377,7 @@
                     </div>
                 </div>
                 <div class="x_title">
-                    <h2>Data Minat dan Bakat</h2>
+                    <h2>Data Minat dan Bakat Siswa</h2>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
@@ -455,7 +455,7 @@
                     </div>
                 </div>
                 <div class="x_title">
-                    <h2>Data Kemampuan Al-Qur'an</h2>
+                    <h2>Data Kemampuan Al-Qur'an Siswa</h2>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
@@ -493,6 +493,7 @@
             </div>
             <div class="col-md-12 col-sm-12 col-xs-12" align="center">
                 <input type="submit" name="submit" value="Ubah" onclick="return confirm('Apakah anda yakin?')" class="btn btn-primary btn-lg">
+                <?= anchor('admin/data_siswa/','Back',array('class' => 'btn btn-warning btn-lg')); ?>
             </div>
         </form>
 		</div>
